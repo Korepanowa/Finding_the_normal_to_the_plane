@@ -75,6 +75,22 @@ for n, m in zip(res[1:], res[:-1]):
         yy3 = NEXT1[1]
         zz3 = NEXT1[2]
 
+        # Найдём координаты вектора М1М2
+        V1X1 = xx2 - xx1
+        V1Y1 = yy2 - yy1
+        V1Z1 = zz2 - zz1
+
+        # Найдём координаты вектора М1М3
+        V2X1 = xx3 - xx1
+        V2Y1 = yy3 - yy1
+        V2Z1 = zz3 - zz1
+
+        X13 = V1Y1*V2Z1-V2Y1*V1Z1
+        Y13 = V1Z1*V2X1-V1X1*V2Z1
+        Z13 = V1X1*V2Y1-V1Y1*V2X1
+        
+        print( "n = (", X13,";", Y13, ";", Z13,")")
+
 
 
         
