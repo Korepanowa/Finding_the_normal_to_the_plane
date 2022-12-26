@@ -1,0 +1,14 @@
+import re
+
+in_file = 'C:\\Users\\user\\Desktop\\Нахождение нормали\\AA8_lamp-holder (1).gcode'
+
+f = [x for x in open(in_file, 'r').readlines() if x.startswith('G') or x.startswith(';LAY')]
+y = re.findall(r'YER:(\d+)(.*?);((LA)|(En))', ''.join(f), re.DOTALL | re.MULTILINE)
+
+layer_count = len(y)
+layers = (x[1] for x in y)
+
+for layer in layers:
+    n_rr = re.findall(r'^G.*?X(\d+\.\d+).*?Y(\d+\.\d+)(.*?E(\d+\.\d+))?', layer, re.MULTILINE)
+    print(n_rr)
+

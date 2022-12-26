@@ -50,7 +50,31 @@ for x2,z2 in groupby(A, lambda x2: x2[2]):
 
 for n, m in zip(res[1:], res[:-1]):
 
-    print(m,n)
+    #print(m,n)
+    for n1, m1 in zip(m[1:], m[:-1]):
+
+        xx1 = m1[0]
+        yy1 = m1[1]
+        zz1 = m1[2]
+        xx2 = n1[0]
+        yy2 = n1[1]
+        zz2 = n1[2]
+
+        
+        xx = (xx1 + xx2)/2
+        yy = (yy1 + yy2)/2
+        zz = (zz1 + zz2)/2
+
+       
+
+
+        
+
+        
+
+        
+
+        
     
    
     
