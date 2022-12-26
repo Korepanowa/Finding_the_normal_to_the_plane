@@ -65,7 +65,12 @@ for n, m in zip(res[1:], res[:-1]):
         yy = (yy1 + yy2)/2
         zz = (zz1 + zz2)/2
 
-       
+        n = np.array(n)
+        leftbottom = np.array((xx, yy, zz))
+        distances = np.linalg.norm(n-leftbottom, axis=1)
+        min_index = np.argmin(distances)
+        NEXT1 = np.array(n[min_index])
+
 
 
         
