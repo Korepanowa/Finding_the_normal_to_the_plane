@@ -71,6 +71,10 @@ for n, m in zip(res[1:], res[:-1]):
         min_index = np.argmin(distances)
         NEXT1 = np.array(n[min_index])
 
+        xx3 = NEXT1[0]
+        yy3 = NEXT1[1]
+        zz3 = NEXT1[2]
+
 
 
         
