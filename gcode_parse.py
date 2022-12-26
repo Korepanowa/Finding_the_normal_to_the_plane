@@ -88,31 +88,6 @@ for n, m in zip(res[1:], res[:-1]):
         X13 = V1Y1*V2Z1-V2Y1*V1Z1
         Y13 = V1Z1*V2X1-V1X1*V2Z1
         Z13 = V1X1*V2Y1-V1Y1*V2X1
-        
+
         print( "n = (", X13,";", Y13, ";", Z13,")")
 
-
-
-        
-
-        
-
-        
-
-        
-    
-   
-    
-            
-
-
-        
-
-
-   
-
-   
-         
-
-
-#print(list(get_coords()))
