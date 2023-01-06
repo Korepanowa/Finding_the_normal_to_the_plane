@@ -131,3 +131,71 @@ for n, m in zip(res[1:], res[:-1]):
             f1.write('vn {} {} {} \n'.format(X13, Y13, Z13))
             f1.close()
 
+#Запись соединения точек в грани
+with open(filename1,"a") as f4:
+    f4.write('usemtl None\ns off\n')
+    f4.close()
+
+for n10, m11 in zip(res[1:], res[:-1]):
+
+  
+    for n12, m13 in zip(m11[1:], m11[:-1]):
+        
+        ttt1 = r.index(m13)
+        tttt1 = ttt1 + 1
+        ttt2 = r.index(n12)
+        tttt2 = ttt2 + 1
+        xx1 = m1[0]
+        yy1 = m1[1]
+        zz1 = m1[2]
+        xx2 = n1[0]
+        yy2 = n1[1]
+        zz2 = n1[2]
+
+        #print(tt1)
+        #print(tt2)
+
+        #print(xx1, yy1, zz1, xx2,  yy2, zz2)
+        xx = (xx1 + xx2)/2
+        yy = (yy1 + yy2)/2
+        zz = (zz1 + zz2)/2
+
+        
+
+        
+
+        #print(m1,n1)
+
+
+
+
+    
+       #print(m)
+        n = np.array(n)
+        leftbottom = np.array((xx, yy, zz))
+        distances = np.linalg.norm(n-leftbottom, axis=1)
+        min_index = np.argmin(distances)
+        NEXT1 = np.array(n[min_index])
+
+
+        #print(xx, yy, zz)
+        #print(m1, n1, type(NEXT1), NEXT1.shape)
+
+        xx3 = NEXT1[0]
+        yy3 = NEXT1[1]
+        zz3 = NEXT1[2]
+        
+        tt3 = (xx3, yy3, zz3)
+        ttt3 = r.index(tt3)
+        tttt3 = ttt3 + 1
+        
+
+
+        
+
+
+        with open(filename1,"a") as f2:
+        
+            f2.write('f {}//{} {}//{} {}//{} \n'.format(tttt1, tttt2, tttt2, tttt3, tttt3, tttt1))
+            f2.close()
+
