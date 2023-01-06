@@ -199,3 +199,7 @@ for n10, m11 in zip(res[1:], res[:-1]):
             f2.write('f {}//{} {}//{} {}//{} \n'.format(tttt1, tttt2, tttt2, tttt3, tttt3, tttt1))
             f2.close()
 
+#Преобразуем в формат .obj
+pp = Path(filename1)
+pp.rename(pp.with_suffix('.obj'))
+
