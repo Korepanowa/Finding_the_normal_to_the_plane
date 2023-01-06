@@ -62,6 +62,25 @@ with open(filename1,"a") as f3:
     f3.write('# Blender v2.79 (sub 0) OBJ File: ''\n# www.blender.org\nmtllib cube.mtl\no Cube_Cube.001\n')
     f3.close()  
 
+#Запись всех координат точек
+for n3 in res[0:]:
+    
+    #print(n3)
+    for n4 in n3[0:]:
+        #print(n4)
+        xxx1 = n4[0]
+        yyy1 = n4[1]
+        zzz1 = n4[2]
+
+
+
+       
+        with open(filename1,"a") as f:
+            
+            
+            f.write('v {} {} {} \n'.format(xxx1, yyy1, zzz1))
+            f.close()
+
 
 #Достаём координаты и находим нормальный вектор плоскости
 for n, m in zip(res[1:], res[:-1]):
@@ -106,6 +125,7 @@ for n, m in zip(res[1:], res[:-1]):
         Z13 = V1X1*V2Y1-V1Y1*V2X1
 
         #print( "n = (", X13,";", Y13, ";", Z13,")")
+        #Запись полученных координат нормального вектора в файл
         with open(filename1,"a") as f1:
         
             f1.write('vn {} {} {} \n'.format(X13, Y13, Z13))
