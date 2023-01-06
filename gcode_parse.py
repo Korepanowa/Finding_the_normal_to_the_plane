@@ -3,12 +3,16 @@ import numpy as np
 from itertools import islice
 from itertools import groupby
 from itertools import product
+from tkinter import filedialog 
+from pathlib import Path
 
 
-
+#Выбор конечного файла для сохранения результата
+filename1 = filedialog.askopenfilename(initialdir = "/", title = "Select file", filetypes = (("txt files", "*.txt"),("all files","*.*")))
 
 def get_coords():
    
+    #Выбираем файл .gcode и прочитываем его послойно
     in_file = 'E:cc.gcode'
     
     f = [x for x in open(in_file, 'r').readlines() if x.startswith('G') or x.startswith(';LAY')]
@@ -38,19 +42,31 @@ def get_coords():
 
 A = list(get_coords())
 
+
 res = []
 for x2,z2 in groupby(A, lambda x2: x2[2]):
     xs = list(z2)
     if len(xs) > 1:
 
         res += [xs]
-        
+
+r = []
+for n7 in res[0:]:
+    
+    r += n7
 
 
 
+open(filename1, "w").close()
+with open(filename1,"a") as f3:
+    f3.write('# Blender v2.79 (sub 0) OBJ File: ''\n# www.blender.org\nmtllib cube.mtl\no Cube_Cube.001\n')
+    f3.close()  
+
+
+#Достаём координаты и находим нормальный вектор плоскости
 for n, m in zip(res[1:], res[:-1]):
 
-    #print(m,n)
+    
     for n1, m1 in zip(m[1:], m[:-1]):
 
         xx1 = m1[0]
